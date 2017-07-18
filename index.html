@@ -24,8 +24,109 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>Fluent Conf 2017</h1>
+				</section>
+				<section>
+					<section>
+						<h2>Styled Components</h2>
+						<h3>Max Stoiber</h3>
+					</section>
+					<section>
+						<pre>
+							<code data-trim>
+								const Title = styled.h1`
+									font-size: 1.5em
+								`;
+								const Button = styles.button`
+									color: ${(props) => props.primary ? ‘white’ : ‘red’},
+								`;
+							</code>
+						</pre>
+						<aside class="notes">
+							- styled.h1 is a function and you can call a function with back ticks in JS now
+							- write actual CSS in your JS.
+							- doesn’t limit you to the CSS in JS limitations.  You can do media queries and everything since it’s just a string
+							- the string is just compiled to the actual CSS
+						</aside>
+					</section>
+					<section>
+						<h3>Theme Provider</h3>
+						<aside class="notes">
+							- Theme Provider allows you to add themes to your app styling
+							- theme only needs to be provided once at the parent node and then passes to children
+							- themes can be nested
+						</aside>
+					</section>
+					<section>
+						<h3>React Primitives</h3>
+						<aside class="notes">
+							- write primitives that can be written and styled once and run in React Native, web and Sketch (prototyping tool)
+						</aside>
+					</section>
+					<section>
+						<h3>Resources</h3>
+						<ul>
+							<li><a href="https://speakerdeck.com/mxstbr/styling-react-applications" target="_blank">Old Version of Slides</a></li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Perceived Performance</h2>
+						<h3>Eli Fitch</h3>
+					</section>
+					<section>
+						<h3>objective time</h3>
+						<h3>vs subjective time</h3>
+						<aside class="notes">
+							- we tend to optimize for objective time and it's easier to test/measure
+							- what if users don't notice?
+								- there has to be enough of a difference for people to tell the difference
+								- has to be more than 20% improvement for users to notice and 30% for it to make a real difference
+							- focus on subjective for better bang for the buck
+						</aside>
+					</section>
+					<section>
+						<h3>active vs passive</h3>
+						<aside class="notes">
+							- takes about 1 sec for user to transition
+							- either keep users active or make the passive portion feel shorter
+						</aside>
+					</section>
+					<section>
+						<h3>Keep users active</h3>
+						<aside class="notes">
+							- hover animations
+							- optimistically update the UI and make API calls in the background
+							- optimistically fire events when user clicks down or approaches button
+							- if user is in a funnel, preload the next page while user is interacting with current page
+						</aside>
+					</section>
+					<section>
+						<h3>loading spinners</h3>
+						<h3>and progress bars</h3>
+						<aside class="notes">
+							- it's a clue that users are waiting and should go into passive state
+							- use if wait time will be 1-4 seconds
+							- progress bars
+								- better because it gives users an idea of how long is left
+								- keep it "realish" by measuring user response time and comparing it to expected time and using the ratio to adjust other expected load times
+						</aside>
+					</section>
+					<section>
+						<h3>longer waits</h3>
+						<aside class="notes">
+							- use multiple loading screens that enagage the user to make them feel like they're doing something
+						</aside>
+					</section>
+					<section>
+						<h3>Resources</h3>
+						<ul>
+							<li><a href="http://assets.eli.wtf/talks/perceived-perf-fluent-2017/" target="_blank">Slides</a></li>
+						</ul>
+					</section>
+				</section>
 			</div>
 		</div>
 
